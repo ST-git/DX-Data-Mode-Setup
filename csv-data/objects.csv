@@ -1,3 +1,3 @@
-label,plural,api,description,nameType
-Game,Games,Game__c,Game Object to store customer's game information,Text
-Season,Seasons,Season__c,Many Season records belongs to Game object,Text
+label,plural,api,description,nameType,namefieldlabel,activities,feeds,reports,search,history
+Game Score,Game Score,GameScore__c,Game Score Object to store customer's game information,Text,Game Score Name,y,y,y,y,y
+Season,Seasons,Season__c,Many Season records belongs to Game object,AutoNumber_S-{000000},Season No,n,n,n,n,n

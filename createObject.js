@@ -24,7 +24,7 @@ function createObjectData(objects) {
 
     createObjectDataByDX();
     async function createObjectDataByDX() {
-      let command = `sfdx shane:object:create --label ${object.label} --plural ${object.plural} --api ${object.api} -t custom --nametype=${object.nameType} --description="${object.description}"`;
+      let command = `sfdx shane:object:create --label "${object.label}" --plural "${object.plural}" --api ${object.api} -t custom --nametype=${object.nameType} --description="${object.description}" ${object.namefieldlabel} ${object.autonumberformat} ${object.activities} ${object.feeds} ${object.reports} ${object.search} ${object.history} --enterprise`;
       console.log(command);
 
       const {
@@ -48,5 +48,12 @@ function SObject(obj) {
   this.plural = obj.plural;
   this.api = obj.api;
   this.description = obj.description;
-  this.nameType = obj.nameType;
+  this.nameType = obj.nameType == 'Text' ? 'Text' : 'AutoNumber';
+  this.namefieldlabel = obj.namefieldlabel ? `--namefieldlabel="${obj.namefieldlabel}"` : '';
+  this.autonumberformat = obj.nameType.includes('AutoNumber') == true ? `--autonumberformat=${obj.nameType.split('_')[1]}` : '';
+  this.activities = obj.activities == 'y' ? '--activities' : '';
+  this.feeds = obj.feeds == 'y' ? '--feeds' : '';
+  this.reports = obj.reports == 'y' ? '--reports' : '';
+  this.search = obj.search == 'y' ? '--search' : '';
+  this.history = obj.history == 'y' ? '--history' : '';
 }

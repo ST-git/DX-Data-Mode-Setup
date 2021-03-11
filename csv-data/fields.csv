@@ -1,3 +1,3 @@
 parent,label,api,type,description
-Game__c,Description,Description__c,Text,Game description
-Game__c,ReleaseDate,ReleaseDate__c,Date,Release date
+Season__c,Description,Description__c,Text,Game description
+Season__c,ReleaseDate,ReleaseDate__c,Date,Release date
